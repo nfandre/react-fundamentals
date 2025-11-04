@@ -1,6 +1,7 @@
 import Banner from "./Components/Banner";
 import Header from "./Components/Header";
 import Link from "./Components/Link/link";
+import MovieSection from "./Components/MovieSection";
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <Link href="/" target="_blank">
                 Link
       </Link>
+      <MovieSection/>
     </>
   )
 }
