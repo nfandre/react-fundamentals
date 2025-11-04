@@ -1,5 +1,14 @@
 # react-fundamentals
 
+## snippets
+
+rafce  
+
+
+## Commands
+
+npm create vite@latest my-react-app -- --template react-ts
+
 
 ## Books Atomic design
 https://atomicdesign.bradfrost.com/
