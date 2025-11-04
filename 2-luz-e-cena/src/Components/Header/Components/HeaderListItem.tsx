@@ -1,9 +1,10 @@
-import React from 'react'
+import React from 'react';
+import styles from '../Header.module.css';
 
 const HeaderListItem = ({ children }: React.LiHTMLAttributes<HTMLLIElement>) => {
     return (
-        <li>{children}</li>
-    )
-}
+        <li className={styles.menuitem}>{children}</li>
+    );
+};
 
-export default HeaderListItem
+export default HeaderListItem;
