@@ -4,104 +4,34 @@ import Fieldset from '../Fieldset';
 import InputText from '../InputText';
 import styles from './MovieSection.module.css'
 import MovieList from '../MovieList';
-import type { Movie } from '../../Types';
+import useFetchMovies from '../../hooks/useFetchMovies';
+import useFilterMovies from '../../hooks/useFilterMovies';
 
 
-const movies: Movie[] = [
-    {
-        id: 1,
-        src: "https://static.wikia.nocookie.net/yugioh/images/a/ae/Link_Aranha.jpg/revision/latest?cb=20170901175317&path-prefix=pt",
-        alt: "Imagem do filme Amanhecer",
-        titulo: "Amanhecer",
-        categoria: "2D",
-        censura: "Livre",
-        genero: "Romance",
-        duracao: 90,
-    },
-    {
-        id: 2,
-        src: "https://static.wikia.nocookie.net/yugioh/images/a/ae/Link_Aranha.jpg/revision/latest?cb=20170901175317&path-prefix=pt",
-        alt: "Imagem do filme Amigo da sombra",
-        titulo: "Amigo da sombra",
-        categoria: "2D",
-        censura: "12 anos",
-        genero: "Suspense",
-        duracao: 110,
-    },
-    {
-        id: 3,
-        src: "https://static.wikia.nocookie.net/yugioh/images/a/ae/Link_Aranha.jpg/revision/latest?cb=20170901175317&path-prefix=pt",
-        alt: "Imagem do filme Amigo do bosque mágico",
-        titulo: "Amigo do bosque mágico",
-        categoria: "2D",
-        censura: "Livre",
-        genero: "Animação",
-        duracao: 60,
-    },
-    {
-        id: 4,
-        src: "https://static.wikia.nocookie.net/yugioh/images/a/ae/Link_Aranha.jpg/revision/latest?cb=20170901175317&path-prefix=pt",
-        alt: "Imagem do filme Caminho para o abismo",
-        titulo: "Caminho para o abismo",
-        categoria: "2D",
-        censura: "14 anos",
-        genero: "Horror",
-        duracao: 103,
-    },
-    {
-        id: 5,
-        src: "https://static.wikia.nocookie.net/yugioh/images/a/ae/Link_Aranha.jpg/revision/latest?cb=20170901175317&path-prefix=pt",
-        alt: "Imagem do filme Desastres do Escritório",
-        titulo: "Desastres do Escritório",
-        categoria: "2D",
-        censura: "Livre",
-        genero: "Comédia",
-        duracao: 85,
-    },
-    {
-        id: 6,
-        src: "https://static.wikia.nocookie.net/yugioh/images/a/ae/Link_Aranha.jpg/revision/latest?cb=20170901175317&path-prefix=pt",
-        alt: "Imagem do filme Mestres do Futuro",
-        titulo: "Mestres do Futuro",
-        categoria: "2D",
-        censura: "Livre",
-        genero: "Documentário",
-        duracao: 120,
-    },
-    {
-        id: 7,
-        src: "https://static.wikia.nocookie.net/yugioh/images/a/ae/Link_Aranha.jpg/revision/latest?cb=20170901175317&path-prefix=pt",
-        alt: "Imagem do filme La Esperanza",
-        titulo: "La Esperanza",
-        categoria: "2D",
-        censura: "12 anos",
-        genero: "Drama",
-        duracao: 98,
-    },
-    {
-        id: 8,
-        src: "https://static.wikia.nocookie.net/yugioh/images/a/ae/Link_Aranha.jpg/revision/latest?cb=20170901175317&path-prefix=pt",
-        alt: "Imagem do filme O nexus do tempo",
-        titulo: "O nexus do tempo",
-        categoria: "3D",
-        censura: "10 anos",
-        genero: "Ficcção Científica",
-        duracao: 105,
-    },
-];
+
 
 const MovieSection = () => {
+    const { movies, error, isLoading } = useFetchMovies();
+    const { searchTerm, handleSearch, setSearchTerm, filteredMovies } = useFilterMovies(movies);
+
     return (
         <main>
             <section className={styles.container}>
                 <Fieldset>
-                    <InputText placeholder='Buscar filmes...' />
+                    <InputText
+                        value={searchTerm}
+                        onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+                            setSearchTerm(event.target.value)
+                        }
+                        placeholder='Buscar filmes...' />
                 </Fieldset>
-                <Button variant='icon'>
+                <Button variant='icon' onClick={() => handleSearch()}>
                     <FaSearch />
                 </Button>
                 <h1 className={styles.titulo}>Em cartaz</h1>
-                <MovieList movies={movies} />
+                {isLoading && <p>Carregando filmes... </p>}
+                {error && <p className={styles.error}>{error} </p>}
+                <MovieList movies={filteredMovies} />
             </section>
         </main>
     );

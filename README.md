@@ -9,6 +9,9 @@ rafce
 
 npm create vite@latest my-react-app -- --template react-ts
 
+npm install json-server
+
+npm install axios
 
 ## Books Atomic design
 https://atomicdesign.bradfrost.com/
