@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { useAppContext } from "../../context/AppContext";
 
 export const StyledUsuario = styled.div`
   grid-area: usuario;
@@ -14,9 +15,12 @@ export const StyledUsuario = styled.div`
 `;
 
 const SaudacaoUsuario = () => {
+
+  const { usuario } = useAppContext();
+
   return (
     <StyledUsuario>
-      <h1>Olá, Neilton</h1>
+      <h1>Olá, {usuario?.nome}</h1>
       <p>Veja como estão suas finanças hoje.</p>
     </StyledUsuario>
   );

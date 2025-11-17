@@ -4,7 +4,6 @@ import {
   CloseButton,
   ModalContainer,
   ModalHeader,
-  ModalOverlay,
 } from "./style";
 import Botao from "../Botao";
 
@@ -50,7 +49,6 @@ const Modal = forwardRef<ModalHandle, ModalProps>(({
   ))
 
   return (
-    <ModalOverlay>
       <ModalContainer ref={dialogRef} onClick={aoClicarForaModal}>
         <ModalHeader>
           <div>
@@ -72,7 +70,6 @@ const Modal = forwardRef<ModalHandle, ModalProps>(({
           </Botao>
         </ButtonGroup>
       </ModalContainer>
-    </ModalOverlay>
   );
 });
 
