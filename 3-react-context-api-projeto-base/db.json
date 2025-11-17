@@ -1,10 +1,39 @@
 {
   "usuarios": [
     {
-      "id": "197d",
-      "nome": "teste",
-      "renda": "0333"
+      "id": "08a9",
+      "nome": "andre",
+      "renda": "5000",
+      "orcamentoDiario": 16833.666666666668
     }
   ],
-  "transacoes": []
+  "transacoes": [
+    {
+      "id": "0cad",
+      "nome": "andre",
+      "valor": 30000,
+      "tipo": "receita",
+      "categoria": "lucas",
+      "data": "0002-02-10",
+      "userId": "08a9"
+    },
+    {
+      "id": "61f9",
+      "nome": "andre",
+      "valor": 3333,
+      "tipo": "despesa",
+      "categoria": "lucas",
+      "data": "",
+      "userId": "08a9"
+    },
+    {
+      "id": "94e7",
+      "nome": "andre",
+      "valor": 10000,
+      "tipo": "despesa",
+      "categoria": "teste",
+      "data": "",
+      "userId": "08a9"
+    }
+  ]
 }

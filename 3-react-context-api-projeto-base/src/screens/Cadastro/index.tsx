@@ -17,7 +17,7 @@ import { IUsuario } from "../../types/index.ts";
 import { useAppContext } from "../../context/AppContext.tsx";
 
 const Cadastro = () => {
-  const [form, setForm] = useState<Omit<IUsuario, "id">>({
+  const [form, setForm] = useState<Omit<IUsuario, "id" | "orcamentoDiario">>({
     nome: "",
     renda: 0
   });
