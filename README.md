@@ -13,6 +13,10 @@ npm install json-server
 
 npm install axios
 
+npm i recoil
+
+npm i kalend
+
 ## Books Atomic design
 https://atomicdesign.bradfrost.com/
 
