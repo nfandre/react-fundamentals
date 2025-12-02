@@ -45,3 +45,7 @@ SSG: https://www.youtube.com/watch?v=4lGfwffGcx0
 https://next-rendering.vercel.app/ISG/1
 
 github: https://github.com/danielolaviobr/next-rendering
+
+## docker curso 6 commands
+docker compose build
+docker compose up
