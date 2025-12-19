@@ -19,7 +19,11 @@ const Sorteio = () => {
     const sortear = (evento: React.FormEvent<HTMLFormElement>) => {
         evento.preventDefault()
         if (resultado.has(participanteDaVez)) {
-            setAmigoSecreto(resultado.get(participanteDaVez)!)
+            setAmigoSecreto(resultado.get(participanteDaVez)!);
+
+            setTimeout(() => {
+                setAmigoSecreto("")
+            }, 5000);
         }
     }
 
